@@ -24,7 +24,9 @@ function TodoList ({
                 <>
                 <h1>Todo Items</h1>
                 <ul>
-                    {todos.map((todo) => {
+                    {todos
+                    .filter((i) => !i.completed)
+                    .map((todo) => {
                         return(
                             <Todo 
                             key={todo.id}
@@ -36,7 +38,22 @@ function TodoList ({
                         )
                     })}
                 </ul>
-
+                    <h1>Completed Items</h1>
+                    <ul>
+                    {todos
+                    .filter((i) => i.completed)
+                    .map((todo) => {
+                        return(
+                            <Todo 
+                            key={todo.id}
+                            todo={todo}
+                            editTodoText={editTodoText}
+                            deleteTodo={deleteTodo}
+                            completeTodo={completeTodo}
+                            /> 
+                        )
+                    })}
+                </ul>
             </>
             ) : (
             <h1>No Todos added yet</h1>
