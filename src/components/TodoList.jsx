@@ -2,7 +2,8 @@ import Todo from "./Todo";
 
 function TodoList ({
     todos,
-    addTodo
+    addTodo,
+    editTodoText
 }) {
     return (
         <>
@@ -17,9 +18,23 @@ function TodoList ({
         />
 
         {todos.length 
-            ? 
-            <Todo /> 
-            : (
+            ? (
+                <>
+                <h1>Todo Items</h1>
+                <ul>
+                    {todos.map((todo) => {
+                        return(
+                            <Todo 
+                            key={todo.id}
+                            todo={todo}
+                            editTodoText={editTodoText}
+                            /> 
+                        )
+                    })}
+                </ul>
+
+            </>
+            ) : (
             <h1>No Todos added yet</h1>
             )
         }

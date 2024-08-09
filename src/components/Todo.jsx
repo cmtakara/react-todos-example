@@ -1,8 +1,30 @@
-function Todo () {
+import { useState } from 'react';
+
+function Todo ({todo, editTodoText}) {
+    // this is because I was troubleshooting why 
+    // editTodoText was not a function
+    // console.log(editTodoText)
+    const [showInput, setShowInput] = useState(false);
     return (
-        <>
-        <h1>This is Todo </h1>
-        </>
+        <li>
+            <div>
+                <h2 onClick={(e) => {
+                    setShowInput(!showInput);
+                }}>
+                    {todo.text}
+                </h2>
+                <input 
+                    style={{ display: showInput ? 'block' : 'none'}}
+                    type='text'
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            editTodoText(todo.id, e);
+                            setShowInput(false);
+                        }
+                    }}
+                />
+            </div>
+        </li>
     )
 }
 

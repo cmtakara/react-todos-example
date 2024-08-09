@@ -16,12 +16,21 @@ function App() {
     // console.log(todos);
   }
 
+  const editTodoText = (id, e) => {
+    const todosCopy = [...todos];
+    const indexOfTodo = todosCopy.findIndex((i) => i.id === id);
+    todosCopy[indexOfTodo].text = e.target.value;
+    setTodos([...todosCopy]);
+    e.target.value='';
+  }
+
   return (
     <>
     <h1>To Do List App</h1>
     <TodoList 
       todos = {todos}
       addTodo = {addTodo}
+      editTodoText={editTodoText}
     />
     </>
   )
