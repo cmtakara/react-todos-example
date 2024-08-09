@@ -4,6 +4,7 @@ function TodoList ({
     todos,
     addTodo,
     editTodoText,
+    completeTodo,
     deleteTodo
 }) {
     return (
@@ -30,6 +31,7 @@ function TodoList ({
                             todo={todo}
                             editTodoText={editTodoText}
                             deleteTodo={deleteTodo}
+                            completeTodo={completeTodo}
                             /> 
                         )
                     })}

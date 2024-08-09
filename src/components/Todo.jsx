@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Todo ({todo, editTodoText, deleteTodo}) {
+function Todo ({todo, editTodoText, completeTodo, deleteTodo}) {
     // this is because I was troubleshooting why 
     // editTodoText was not a function
     // console.log(editTodoText)
@@ -23,6 +23,16 @@ function Todo ({todo, editTodoText, deleteTodo}) {
                         }
                     }}
                 />
+                <label>
+                    Complete
+                    <input 
+                        type='checkbox'
+                        checked={todo.completed}
+                        onChange={(e) => {
+                            completeTodo(todo.id, e)
+                        }}
+                    />
+                </label>
                 <button
                     onClick={(e) => {
                         deleteTodo(todo.id)

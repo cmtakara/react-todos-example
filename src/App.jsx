@@ -24,6 +24,13 @@ function App() {
     e.target.value='';
   }
 
+  const completeTodo = (id, e) => {
+    const todosCopy = [...todos];
+    const indexOfTodo = todosCopy.findIndex((i) => i.id === id);
+    todosCopy[indexOfTodo].completed = !todosCopy[indexOfTodo].completed
+    setTodos([...todosCopy]);
+  }
+
   const deleteTodo = (id) => {
     const todosCopy = [...todos];
     const indexOfTodo = todosCopy.findIndex((i) => i.id === id);
@@ -38,6 +45,7 @@ function App() {
       todos = {todos}
       addTodo = {addTodo}
       editTodoText={editTodoText}
+      completeTodo={completeTodo}
       deleteTodo={deleteTodo}
     />
     </>
