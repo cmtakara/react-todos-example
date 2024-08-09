@@ -3,7 +3,8 @@ import Todo from "./Todo";
 function TodoList ({
     todos,
     addTodo,
-    editTodoText
+    editTodoText,
+    deleteTodo
 }) {
     return (
         <>
@@ -28,6 +29,7 @@ function TodoList ({
                             key={todo.id}
                             todo={todo}
                             editTodoText={editTodoText}
+                            deleteTodo={deleteTodo}
                             /> 
                         )
                     })}

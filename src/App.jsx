@@ -24,6 +24,13 @@ function App() {
     e.target.value='';
   }
 
+  const deleteTodo = (id) => {
+    const todosCopy = [...todos];
+    const indexOfTodo = todosCopy.findIndex((i) => i.id === id);
+    todosCopy.splice(indexOfTodo, 1);
+    setTodos([...todosCopy]);
+  }
+
   return (
     <>
     <h1>To Do List App</h1>
@@ -31,6 +38,7 @@ function App() {
       todos = {todos}
       addTodo = {addTodo}
       editTodoText={editTodoText}
+      deleteTodo={deleteTodo}
     />
     </>
   )
